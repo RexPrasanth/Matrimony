@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thilai Matrimony Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h1>Thilai Matrimony Registration</h1>
+        <nav>
+            <a href="home.html" class="btn">Home</a>
+            <a href="offers.html" class="btn">Offers</a>
+            <a href="contacts.html" class="btn">Contacts</a>
+            <a href="about.html" class="btn">About</a>
+            <a href="login.php" class="btn">Log In</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>REGISTER</h2>
+            <form action="register.php" method="POST" enctype="multipart/form-data">
+                <!-- Existing form fields -->
+
+                
+
+                <label for="name">Name / பெயர்:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="education">Education / கல்வி:</label>
+                <input type="text" id="education" name="education" placeholder="Enter your education" required>
+
+                <label for="job_or_business">Job or business / வேலை அல்லது வியாபாரம்:</label>
+                <input type="text" id="job_or_business" name="job_or_business" placeholder="Enter your Job or business" required>
+
+                <label for="per_month_income">Per month income / மாத வருமானம்:</label>
+                <input type="number" id="per_month_income" name="per_month_income" placeholder="Enter your Per month income" required>
+
+                <label for="gender">Gender / பாலினம்:</label>
+                <select id="gender" name="gender"  required>
+                    <option value="Select">Select</option>
+                    <option value="Male">Male / ஆண்</option>
+                    <option value="Female">Female / பெண்</option>
+                    <option value="Other">Other / மற்றவர்கள்</option>
+                </select>
+
+                <label for="birthdate">Birthday Date / பிறந்த நாள் தேதி:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+
+                <label for="birthtime">Birth Time / பிறந்த நேரம்:</label>
+                <input type="time" id="birthtime" name="birthtime" required>
+
+                <label for="place_of_birth">Place of Birth / பிறந்த இடம்:</label>
+                <input type="text" id="place_of_birth" name="place_of_birth" placeholder="Enter place of birth" required>
+
+                <label for="caste">Caste / ஜாதி:</label>
+                <select id="caste" name="caste" required>
+                    <option value="Select">Select</option>
+                    <option value="Mudaliyar">Mudaliyar / முதலியார்</option>
+                </select>
+
+                <label for="subcaste">Sub-caste / துணை ஜாதி:</label>
+                <select id="subcaste" name="subcaste" required>
+                    <option value="Select">Select</option>
+                    <option value="Kaikolar">Kaikolar / கைகோளர்</option>
+                    <option value="Agamudi">Agamudi / அகமுடையார்</option>
+                    <!-- Add more sub-caste options here -->
+                </select>
+
+                <label for="father_name">Father Name / தந்தையின் பெயர்:</label>
+                <input type="text" id="father_name" name="father_name" placeholder="Enter father's name" required>
+
+                <label for="father_job">Father's Occupation or Job / தந்தையின் தொழில் அல்லது வேலை:</label>
+                <input type="text" id="father_job" name="father_job" placeholder="Enter father's occupation or job" required>
+
+                <label for="mother_name">Mother Name / தாயின் பெயர்:</label>
+                <input type="text" id="mother_name" name="mother_name" placeholder="Enter mother's name" required>
+
+                <label for="mother_job">Mother's Occupation or Job / தாயின் தொழில் அல்லது வேலை:</label>
+                <input type="text" id="mother_job" name="mother_job" placeholder="Enter mother's occupation or job" required>
+                
+
+                <!-- Relationship Section -->
+                <label>Relationship Information / உறவினர் தகவல்:</label>
+                <table>
+                    <tr>
+                        
+                        <th>Relationship </th>
+                        <th>Married / திருமணமான</th>
+                        <th>Unmarried / திருமணமாகாத</th>
+                    </tr>
+                    <tr>
+                        <td>Elder Brother / பெரிய சகோதரர்:</td>
+                        <td><input type="number" name="elder_brother_married" min="0" value="0"></td>
+                        <td><input type="number" name="elder_brother_unmarried" min="0" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Younger Brother / இளைய சகோதரர்:</td>
+                        <td><input type="number" name="younger_brother_married" min="0" value="0"></td>
+                        <td><input type="number" name="younger_brother_unmarried" min="0" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Elder Sister / பெரிய சகோதரி:</td>
+                        <td><input type="number" name="elder_sister_married" min="0" value="0"></td>
+                        <td><input type="number" name="elder_sister_unmarried" min="0" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Younger Sister / இளைய சகோதரி:</td>
+                        <td><input type="number" name="younger_sister_married" min="0" value="0"></td>
+                        <td><input type="number" name="younger_sister_unmarried" min="0" value="0"></td>
+                    </tr>
+                </table>
+
+
+                <!-- Rasi Select -->
+                <label for="rasi">Rasi / ராசி:</label>
+                <select id="rasi" name="rasi" required>
+                    <option value="Aries">மேஷம்</option>
+                    <option value="Taurus">விருச்சிகம்</option>
+                    <option value="Gemini">மிதுனம்</option>
+                    <option value="Cancer">கடகம்</option>
+                    <option value="Leo">சிங்கம்</option>
+                    <option value="Virgo">கன்னி</option>
+                    <option value="Libra">துலா</option>
+                    <option value="Scorpio">விருச்சிகம்</option>
+                    <option value="Sagittarius">தனுசு</option>
+                    <option value="Capricorn">மகரம்</option>
+                    <option value="Aquarius">கும்பம்</option>
+                    <option value="Pisces">மீனம்</option>
+                </select>
+
+                <!-- Natchathiram Select -->
+                <label for="natchathiram">Natchathiram / நட்சத்திரம்:</label>
+                <select id="natchathiram" name="natchathiram" required>
+                    
+                    <option value="Ashwini">அஸ்வயு</option>
+                    <option value="Bharani">பரணி</option>
+                    <option value="Krittika">கிருத்திகை</option>
+                    <option value="Rohini">ரோகிணி</option>
+                    <option value="Mrigashira">மிரிகசிரா</option>
+                    <option value="Aridra">ஆரிட்ரா</option>
+                    <option value="Punarvasu">புணர்வசு</option>
+                    <option value="Pushya">புஷ்யா</option>
+                    <option value="Ashlesha">ஆசேஷா</option>
+                    <option value="Magha">மகா</option>
+                    <option value="Purvaphalguni">பூர்வ பால்</option>
+                    <option value="Uttara Phalguni">உத்தரா பால்</option>
+                    <option value="Hasta">ஹஸ்தா</option>
+                    <option value="Chitra">சித்திரா</option>
+                    <option value="Swati">ஸ்வாதி</option>
+                    <option value="Vishakha">விசாகம்</option>
+                    <option value="Anuradha">அனுராதா</option>
+                    <option value="Jyeshtha">ஜெயேஷ்டா</option>
+                    <option value="Moola">மூலா</option>
+                    <option value="Purvashada">பூர்வஅஷ்டா</option>
+                    <option value="Uttarasada">உத்தரசதா</option>
+                    <option value="Shravana">சிரவணம்</option>
+                    <option value="Dhanishta">தனிஷ்டா</option>
+                    <option value="Shatabhisha">ஷடபிஷா</option>
+                    <option value="Purvabhadra">பூர்வபாத்ரா</option>
+                    <option value="Uttara Bhadra">உத்தரா பாத்ரா</option>
+                    <option value="Revati">ரேவதி</option>
+                </select>
+
+                <label for="rasi_table">Rasi / ராசி:</label>
+                <table id="rasi_table">
+                    
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="rasi_1_1" ></td>
+                            <td><input type="text" name="rasi_1_2" ></td>
+                            <td><input type="text" name="rasi_1_3" ></td>
+                            <td><input type="text" name="rasi_1_4" ></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_2_1" ></td>
+                            <td colspan="2"  rowspan="2">RASI / ராசி</td>
+                                
+                            </td>
+                            <td><input type="text" name="rasi_2_4" ></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_3_1" ></td>
+                            <td><input type="text" name="rasi_3_4" ></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_4_1" ></td>
+                            <td><input type="text" name="rasi_4_2" ></td>
+                            <td><input type="text" name="rasi_4_3" ></td>
+                            <td><input type="text" name="rasi_4_4" ></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <label for="amsam_table">Amsam / அம்சம்:</label>
+                <table id="amsam_table">
+                    
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="amsam_1_1" placeholder=""></td>
+                            <td><input type="text" name="amsam_1_2" placeholder=""></td>
+                            <td><input type="text" name="amsam_1_3" placeholder=""></td>
+                            <td><input type="text" name="amsam_1_4" placeholder=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="AMSAM_2_1" placeholder=""></td>
+                            <td colspan="2"  rowspan="2">AMSAM / அம்சம்</td>
+                                
+                            </td>
+                            <td><input type="text" name="amsam_2_4" placeholder=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="amsam_3_1" placeholder=""></td>
+                            <td><input type="text" name="amsam_3_4" placeholder=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="amsam_4_1" placeholder=""></td>
+                            <td><input type="text" name="amsam_4_2" placeholder=""></td>
+                            <td><input type="text" name="amsam_4_3" placeholder=""></td>
+                            <td><input type="text" name="amsam_4_4" placeholder=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                    <!-- Existing fields -->
+                    <label for="image">Upload Profile Image / ப்ரொஃபைல் படம் பதிவேற்றவும்:</label>
+                    <input type="file" id="image" name="image" accept="image/*"><br>
+
+
+                    
+                    
+                
+                
+
+               
+                
+
+                <button type="submit">Register / பதிவு</button>
+                
+            </form>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('image/background.jpg'); /* Ensure the correct path to your background image */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* This ensures the background image covers the entire page */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header  {
+    background-color: #e089e0;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: relative;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+}
+
+nav {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+
+nav a {
+    background-color: white;
+    color: #e089e0;
+    border: 1px solid #e089e0;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+nav a.btn {
+    background: #e089e0;
+    color: white;
+}
+
+
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="date"], input[type="time"], select, input[type="number"], input[type="file"] {
+
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+
+
