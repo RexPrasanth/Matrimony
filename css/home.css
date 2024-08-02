@@ -1,0 +1,78 @@
+/* General styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #d127e0;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #fff;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Swiper styles */
+.swiper-container {
+    width: 100%;
+    height: 400px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullets {
+    bottom: 10px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff;
+}
+
+/* Calendar section styles */
+.calendar {
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+.calendar h2 {
+    color: #333;
+}
+
+#tamil-date {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#ravukalam, #yamagandam {
+    font-size: 16px;
+    margin: 5px 0;
+}

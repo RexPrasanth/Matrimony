@@ -1,3 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thilai Matrimony Login</title>
+    <link rel="stylesheet" href="css/login.css">
+   
+</head>
+<body>
+
+<header>
+        <h1>Thilai Matrimony Log in</h1>
+        <nav>
+            <a href="home.html" class="home">Home</a>
+            <a href="offers.html" class="offers">Offers</a>
+            <a href="contacts.html" class="contacts">Contacts</a>
+            <a href="about.html" class="about">About</a>
+           
+        </nav>
+    </header>
+<section>
+    <h2>Log in / உள்நுழைய</h2>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        
+
+        <label for="username">Username / பயனர் பெயர்:</label>
+        <input type="text" id="name" name="username" placeholder="Enter your username" required>
+
+
+        <label for="password">Password / கடவுச்சொல்:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        
+        <button type="submit">Log in</button>
+    </form>
+
+</section>
+</body>
+</html>
+
+
+
 <?php
 session_start();
 include 'db_connect.php'; // Include database connection file
@@ -42,23 +85,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <input type="submit" value="Login">
-    </form>
-</body>
-</html>
+
