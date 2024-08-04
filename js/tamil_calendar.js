@@ -10,16 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
         'Saturday': {'Rahu Kalam': '09:00 - 10:30', 'Yamagandam': '01:30 - 03:00'}
     };
 
+    // Define a simple mapping of Gregorian dates to Tamil dates
+    const tamilDates = {
+        '2024-08-01': '17 ஆடி 2024',
+        '2024-08-02': '17 ஆடி 2024',
+        // Add more date mappings as needed
+    };
+
     // Get the current date and day
     const currentDate = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+    const currentDateString = currentDate.toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
     // Display the English date
     document.getElementById('english-date').textContent = 'English Date: ' + currentDate.toLocaleDateString('en-US', options);
 
-    // Display the Tamil date (fixed value for the example)
-    document.getElementById('tamil-date').textContent = 'Tamil Date: 16 ஆடி 2024';
+    // Display the Tamil date based on the mapping
+    const tamilDate = tamilDates[currentDateString] || 'N/A';
+    document.getElementById('tamil-date').textContent = 'Tamil Date: ' + tamilDate;
 
     // Display the Rahu Kalam and Yamagandam times
     if (times[dayName]) {

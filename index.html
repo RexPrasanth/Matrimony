@@ -23,8 +23,7 @@
         <section>
             <h2>REGISTER</h2>
             <form action="register.php" method="POST" enctype="multipart/form-data">
-                <!-- Existing form fields -->
-
+            
                 
 
                 <label for="name">Name / பெயர்:</label>
@@ -123,54 +122,50 @@
 
 
                 <!-- Rasi Select -->
-                <label for="rasi">Rasi / ராசி:</label>
+                <label for="rasi">Rasi-Natchathiram / ராசி-நட்சத்திரம்:</label>
                 <select id="rasi" name="rasi" required>
-                    <option value="Aries">மேஷம்</option>
-                    <option value="Taurus">விருச்சிகம்</option>
-                    <option value="Gemini">மிதுனம்</option>
-                    <option value="Cancer">கடகம்</option>
-                    <option value="Leo">சிங்கம்</option>
-                    <option value="Virgo">கன்னி</option>
-                    <option value="Libra">துலா</option>
-                    <option value="Scorpio">விருச்சிகம்</option>
-                    <option value="Sagittarius">தனுசு</option>
-                    <option value="Capricorn">மகரம்</option>
-                    <option value="Aquarius">கும்பம்</option>
-                    <option value="Pisces">மீனம்</option>
-                </select>
+                    <option value="மேஷம் - அசுவினி">மேஷம் - அசுவினி</option>
+                    <option value="மேஷம் - பரணி">மேஷம் - பரணி</option>
+                    <option value="மேஷம் - கார்த்திகை 1ம் பாதம்">மேஷம் - கார்த்திகை 1ம் பாதம்</option>
+                    <option value="ரிஷபம் - கார்த்திகை 2, 3, 4ம் பாதம்">ரிஷபம் - கார்த்திகை 2, 3, 4ம் பாதம்</option>
+                    <option value="ரிஷபம் - ரோகினி">ரிஷபம் - ரோகினி</option>
+                    <option value="ரிஷபம் - மிருகசீரிஷம் 1, 2ம் பாதம்">ரிஷபம் - மிருகசீரிஷம் 1, 2ம் பாதம்</option>
+                    <option value="மிதுனம் - மிருகசீரிஷம் 3, 4ம் பாதம்">மிதுனம் - மிருகசீரிஷம் 3, 4ம் பாதம்</option>
+                    <option value="மிதுனம் - திருவாதிரை">மிதுனம் - திருவாதிரை</option>
+                    <option value="மிதுனம் - புனர்பூசம் 1, 2, 3ம் பாதம்">மிதுனம் - புனர்பூசம் 1, 2, 3ம் பாதம்</option>
+                    <option value="கடகம் - புனர்பூசம் 4ம் பாதம்">கடகம் - புனர்பூசம் 4ம் பாதம்</option>
+                    <option value="கடகம் - பூசம்">கடகம் - பூசம்</option>
+                    <option value="கடகம் - ஆயில்யம்">கடகம் - ஆயில்யம்</option>
+                    <option value="சிம்மம் - மகம்">சிம்மம் - மகம்</option>
+                    <option value="சிம்மம் - பூரம்">சிம்மம் - பூரம்</option>
+                    <option value="சிம்மம் - உத்திரம் 1ம் பாதம்">சிம்மம் - உத்திரம் 1ம் பாதம்</option>
+                    <option value="கன்னி - உத்திரம் 2, 3, 4ம் பாதம்">கன்னி - உத்திரம் 2, 3, 4ம் பாதம்</option>
+                    <option value="கன்னி - அஸ்தம்">கன்னி - அஸ்தம்</option>
+                    <option value="கன்னி - சித்திரை 1, 2ம் பாதம்">கன்னி - சித்திரை 1, 2ம் பாதம்</option>
+                    <option value="துலாம் - சித்திரை 3, 4ம் பாதம்">துலாம் - சித்திரை 3, 4ம் பாதம்</option>
+                    <option value="துலாம் - சுவாதி">துலாம் - சுவாதி</option>
+                    <option value="துலாம் - விசாகம் 1, 2, 3ம் பாதம்">துலாம் - விசாகம் 1, 2, 3ம் பாதம்</option>
+                    <option value="விருச்சிகம் விசாகம் 4ம் பாதம்">விருச்சிகம் விசாகம் 4ம் பாதம்</option>
+                    <option value="விருச்சிகம் - அனுஷம்">விருச்சிகம் - அனுஷம்</option>
+                    <option value="விருச்சிகம் - கேட்டை">விருச்சிகம் - கேட்டை</option>
+                    <option value="தனுசு - மூலம்">தனுசு - மூலம்</option>
+                    <option value="தனுசு - பூராடம்">தனுசு - பூராடம்</option>
+                    <option value="தனுசு - உத்திராடம் 1ம் பாதம்">தனுசு - உத்திராடம் 1ம் பாதம்</option>
+                    <option value="மகரம் - உத்திராடம் 2, 3, 4ம் பாதம்">மகரம் - உத்திராடம் 2, 3, 4ம் பாதம்</option>
+                    <option value="மகரம் - திருவோணம்">மகரம் - திருவோணம்</option>
+                    <option value="மகரம் - அவிட்டம் 1, 2ம் பாதம்">மகரம் - அவிட்டம் 1, 2ம் பாதம்</option>
+                    <option value="கும்பம் - அவிட்டம் 3, 4ம் பாதம்">கும்பம் - அவிட்டம் 3, 4ம் பாதம்</option>
+                    <option value="கும்பம் - சதயம்">கும்பம் - சதயம்</option>
+                    <option value="கும்பம் - பூரட்டாதி 1. 2. 3ம் பாதம்">கும்பம் - பூரட்டாதி 1. 2. 3ம் பாதம்</option>
+                    <option value="மீனம் - பூரட்டாதி 4ம் பாதம்">மீனம் - பூரட்டாதி 4ம் பாதம்</option>
+                    <option value="மீனம் - உத்திரட்டாதி">மீனம் - உத்திரட்டாதி</option>
+                    <option value="மீனம் - ரேவதி">மீனம் - ரேவதி</option>
+                    
+                    </select>
 
                 <!-- Natchathiram Select -->
-                <label for="natchathiram">Natchathiram / நட்சத்திரம்:</label>
-                <select id="natchathiram" name="natchathiram" required>
-                    
-                    <option value="Ashwini">அஸ்வயு</option>
-                    <option value="Bharani">பரணி</option>
-                    <option value="Krittika">கிருத்திகை</option>
-                    <option value="Rohini">ரோகிணி</option>
-                    <option value="Mrigashira">மிரிகசிரா</option>
-                    <option value="Aridra">ஆரிட்ரா</option>
-                    <option value="Punarvasu">புணர்வசு</option>
-                    <option value="Pushya">புஷ்யா</option>
-                    <option value="Ashlesha">ஆசேஷா</option>
-                    <option value="Magha">மகா</option>
-                    <option value="Purvaphalguni">பூர்வ பால்</option>
-                    <option value="Uttara Phalguni">உத்தரா பால்</option>
-                    <option value="Hasta">ஹஸ்தா</option>
-                    <option value="Chitra">சித்திரா</option>
-                    <option value="Swati">ஸ்வாதி</option>
-                    <option value="Vishakha">விசாகம்</option>
-                    <option value="Anuradha">அனுராதா</option>
-                    <option value="Jyeshtha">ஜெயேஷ்டா</option>
-                    <option value="Moola">மூலா</option>
-                    <option value="Purvashada">பூர்வஅஷ்டா</option>
-                    <option value="Uttarasada">உத்தரசதா</option>
-                    <option value="Shravana">சிரவணம்</option>
-                    <option value="Dhanishta">தனிஷ்டா</option>
-                    <option value="Shatabhisha">ஷடபிஷா</option>
-                    <option value="Purvabhadra">பூர்வபாத்ரா</option>
-                    <option value="Uttara Bhadra">உத்தரா பாத்ரா</option>
-                    <option value="Revati">ரேவதி</option>
-                </select>
+                <label for="expectation">Expectation / எதிர்பார்ப்பு:</label>
+                <input type="text" id="expectation" name="expectation" placeholder="Enter your expectation" required>
 
                 <label for="rasi_table">Rasi / ராசி:</label>
                 <table id="rasi_table">
@@ -214,7 +209,7 @@
                             <td><input type="text" name="amsam_1_4" placeholder=""></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="AMSAM_2_1" placeholder=""></td>
+                            <td><input type="text" name="amsam_2_1" placeholder=""></td>
                             <td colspan="2"  rowspan="2">AMSAM / அம்சம்</td>
                                 
                             </td>
@@ -256,5 +251,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
+
 </body>
 </html>

@@ -45,7 +45,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $younger_sister_married = $conn->real_escape_string($_POST['younger_sister_married']);
     $younger_sister_unmarried = $conn->real_escape_string($_POST['younger_sister_unmarried']);
     $rasi = $conn->real_escape_string($_POST['rasi']);
-    $natchathiram = $conn->real_escape_string($_POST['natchathiram']);
+    $expectation = $conn->real_escape_string($_POST['expectation']);
+    $rasi_1_1 = $conn->real_escape_string($_POST['rasi_1_1']);
+    $rasi_1_2 = $conn->real_escape_string($_POST['rasi_1_2']);
+    $rasi_1_3 = $conn->real_escape_string($_POST['rasi_1_3']);
+    $rasi_1_4 = $conn->real_escape_string($_POST['rasi_1_4']);
+    $rasi_2_1 = $conn->real_escape_string($_POST['rasi_2_1']);
+    $rasi_2_4 = $conn->real_escape_string($_POST['rasi_2_4']);
+    $rasi_3_1 = $conn->real_escape_string($_POST['rasi_3_1']);
+    $rasi_3_4 = $conn->real_escape_string($_POST['rasi_3_4']);
+    $rasi_4_1 = $conn->real_escape_string($_POST['rasi_4_1']);
+    $rasi_4_2 = $conn->real_escape_string($_POST['rasi_4_2']);
+    $rasi_4_3 = $conn->real_escape_string($_POST['rasi_4_3']);
+    $rasi_4_4 = $conn->real_escape_string($_POST['rasi_4_4']);
+    $amsam_1_1 = $conn->real_escape_string($_POST['amsam_1_1']);
+    $amsam_1_2 = $conn->real_escape_string($_POST['amsam_1_2']);
+    $amsam_1_3 = $conn->real_escape_string($_POST['amsam_1_3']);
+    $amsam_1_4 = $conn->real_escape_string($_POST['amsam_1_4']);
+    $amsam_2_1 = $conn->real_escape_string($_POST['amsam_2_1']);
+    $amsam_2_4 = $conn->real_escape_string($_POST['amsam_2_4']);
+    $amsam_3_1 = $conn->real_escape_string($_POST['amsam_3_1']);
+    $amsam_3_4 = $conn->real_escape_string($_POST['amsam_3_4']);
+    $amsam_4_1 = $conn->real_escape_string($_POST['amsam_4_1']);
+    $amsam_4_2 = $conn->real_escape_string($_POST['amsam_4_2']);
+    $amsam_4_3 = $conn->real_escape_string($_POST['amsam_4_3']);
+    $amsam_4_4 = $conn->real_escape_string($_POST['amsam_4_4']);
+    
+    if (!empty($_FILES['image']['name'])) {
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        $image = $target_file;
+    } else {
+        $image = $user['image'];
+    }
+
+    
+    
+    
 
     // Update user data
     $sql = "UPDATE users SET 
@@ -72,7 +109,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             younger_sister_married='$younger_sister_married',
             younger_sister_unmarried='$younger_sister_unmarried',
             rasi='$rasi',
-            natchathiram='$natchathiram'
+            expectation='$expectation',
+            rasi_1_1='$rasi_1_1',
+            rasi_1_2='$rasi_1_2',
+            rasi_1_3='$rasi_1_3',
+            rasi_1_4='$rasi_1_4',
+            rasi_2_1='$rasi_2_1',
+            rasi_2_4='$rasi_2_4',
+            rasi_3_1='$rasi_3_1',
+            rasi_3_4='$rasi_3_4',
+            rasi_4_1='$rasi_4_1',
+            rasi_4_2='$rasi_4_2',
+            rasi_4_3='$rasi_4_3',
+            rasi_4_4='$rasi_4_4',
+            amsam_1_1='$amsam_1_1',
+            amsam_1_2='$amsam_1_2',
+            amsam_1_3='$amsam_1_3',
+            amsam_1_4='$amsam_1_4',
+            amsam_2_1='$amsam_2_1',
+            amsam_2_4='$amsam_2_4',
+            amsam_3_1='$amsam_3_1',
+            amsam_3_4='$amsam_3_4',
+            amsam_4_1='$amsam_4_1',
+            amsam_4_2='$amsam_4_2',
+            amsam_4_3='$amsam_4_3',
+            amsam_4_4='$amsam_4_4',
+            image='$image'
             WHERE username='$username'";
 
     if ($conn->query($sql) === TRUE) {
@@ -90,76 +152,31 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 50%;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 10px;
-            align-items: center;
-        }
-        label {
-            text-align: right;
-            padding-right: 10px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="date"], input[type="time"], input[type="number"], select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            grid-column: 2 / 3;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .logout-button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-        .logout-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Uear Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/profile.css">
+
 </head>
 <body>
-    <div class="container">
-        <h1>Your Profile</h1>
-        <form action="profile.php" method="post">
+    <header>
+        <h1>Thilai Matrimony Uear Profile</h1>
+        <nav>
+            <a href="home.html" class="home">Home</a>
+            <a href="offers.html" class="offers">Offers</a>
+            <a href="contacts.html" class="contacts">Contacts</a>
+            <a href="about.html" class="about">About</a>
+            
+        </nav>
+    </header>
+    
+
+<main>
+
+    <section>
+        <h2>Your Profile</h2>
+        <form action="profile.php" method="post" >
+
+            
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user['name']); ?>" required>
 
@@ -202,41 +219,144 @@ $conn->close();
             <label for="mother_job">Mother's Job:</label>
             <input type="text" id="mother_job" name="mother_job" value="<?php echo htmlspecialchars($user['mother_job']); ?>" required>
 
-            <label for="elder_brother_married">Elder Brother (Married):</label>
-            <input type="number" id="elder_brother_married" name="elder_brother_married" value="<?php echo htmlspecialchars($user['elder_brother_married']); ?>" required>
 
-            <label for="elder_brother_unmarried">Elder Brother (Unmarried):</label>
-            <input type="number" id="elder_brother_unmarried" name="elder_brother_unmarried" value="<?php echo htmlspecialchars($user['elder_brother_unmarried']); ?>" required>
 
-            <label for="younger_brother_married">Younger Brother (Married):</label>
-            <input type="number" id="younger_brother_married" name="younger_brother_married" value="<?php echo htmlspecialchars($user['younger_brother_married']); ?>" required>
-
-            <label for="younger_brother_unmarried">Younger Brother (Unmarried):</label>
-            <input type="number" id="younger_brother_unmarried" name="younger_brother_unmarried" value="<?php echo htmlspecialchars($user['younger_brother_unmarried']); ?>" required>
-
-            <label for="elder_sister_married">Elder Sister (Married):</label>
-            <input type="number" id="elder_sister_married" name="elder_sister_married" value="<?php echo htmlspecialchars($user['elder_sister_married']); ?>" required>
-
-            <label for="elder_sister_unmarried">Elder Sister (Unmarried):</label>
-            <input type="number" id="elder_sister_unmarried" name="elder_sister_unmarried" value="<?php echo htmlspecialchars($user['elder_sister_unmarried']); ?>" required>
-
-            <label for="younger_sister_married">Younger Sister (Married):</label>
-            <input type="number" id="younger_sister_married" name="younger_sister_married" value="<?php echo htmlspecialchars($user['younger_sister_married']); ?>" required>
-
-            <label for="younger_sister_unmarried">Younger Sister (Unmarried):</label>
-            <input type="number" id="younger_sister_unmarried" name="younger_sister_unmarried" value="<?php echo htmlspecialchars($user['younger_sister_unmarried']); ?>" required>
+            <label>Relationship Information / உறவினர் தகவல்:</label>
+                <table>
+                    <tr>
+                        
+                        <th>Relationship </th>
+                        <th>Married / திருமணமான</th>
+                        <th>Unmarried / திருமணமாகாத</th>
+                    </tr>
+                    <tr>
+                        <td>Elder Brother / பெரிய சகோதரர்:</td>
+                        <td><input type="number" name="elder_brother_married" value="<?php echo htmlspecialchars($user['elder_brother_married']); ?>"></td>
+                        <td><input type="number" name="elder_brother_unmarried"  value="<?php echo htmlspecialchars($user['elder_brother_unmarried']); ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Younger Brother / இளைய சகோதரர்:</td>
+                        <td><input type="number" name="younger_brother_married"  value="<?php echo htmlspecialchars($user['younger_brother_married']); ?>"></td>
+                        <td><input type="number" name="younger_brother_unmarried"  value="<?php echo htmlspecialchars($user['younger_brother_unmarried']); ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Elder Sister / பெரிய சகோதரி:</td>
+                        <td><input type="number" name="elder_sister_married"  value="<?php echo htmlspecialchars($user['elder_sister_married']); ?>"></td>
+                        <td><input type="number" name="elder_sister_unmarried"  value="<?php echo htmlspecialchars($user['elder_sister_unmarried']); ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>Younger Sister / இளைய சகோதரி:</td>
+                        <td><input type="number" name="younger_sister_married"  value="<?php echo htmlspecialchars($user['younger_sister_married']); ?>"></td>
+                        <td><input type="number" name="younger_sister_unmarried"  value="<?php echo htmlspecialchars($user['younger_sister_unmarried']); ?>"></td>
+                    </tr>
+                </table>
 
             <label for="rasi">Rasi:</label>
             <input type="text" id="rasi" name="rasi" value="<?php echo htmlspecialchars($user['rasi']); ?>" required>
+            
+                
 
-            <label for="natchathiram">Natchathiram:</label>
-            <input type="text" id="natchathiram" name="natchathiram" value="<?php echo htmlspecialchars($user['natchathiram']); ?>" required>
+            <label for="expectation">Expectation:</label>
+            <input type="text" id="expectation" name="expectation" value="<?php echo htmlspecialchars($user['expectation']); ?>" required>
 
-            <button type="submit">Update Profile</button>
+
+            <label for="rasi_table">Rasi / ராசி:</label>
+                <table id="rasi_table">
+                    
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="rasi_1_1" value="<?php echo htmlspecialchars($user['rasi_1_1']); ?>" ></td>
+                            <td><input type="text" name="rasi_1_2" value="<?php echo htmlspecialchars($user['rasi_1_2']); ?>"></td>
+                            <td><input type="text" name="rasi_1_3" value="<?php echo htmlspecialchars($user['rasi_1_3']); ?>"></td>
+                            <td><input type="text" name="rasi_1_4" value="<?php echo htmlspecialchars($user['rasi_1_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_2_1" value="<?php echo htmlspecialchars($user['rasi_2_1']); ?>"></td>
+                            <td colspan="2"  rowspan="2">RASI / ராசி</td>
+                                
+                            </td>
+                            <td><input type="text" name="rasi_2_4" value="<?php echo htmlspecialchars($user['rasi_2_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_3_1" value="<?php echo htmlspecialchars($user['rasi_3_1']); ?>"></td>
+                            <td><input type="text" name="rasi_3_4" value="<?php echo htmlspecialchars($user['rasi_3_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="rasi_4_1" value="<?php echo htmlspecialchars($user['rasi_4_1']); ?>"></td>
+                            <td><input type="text" name="rasi_4_2" value="<?php echo htmlspecialchars($user['rasi_4_2']); ?>"></td>
+                            <td><input type="text" name="rasi_4_3" value="<?php echo htmlspecialchars($user['rasi_4_3']); ?>"></td>
+                            <td><input type="text" name="rasi_4_4" value="<?php echo htmlspecialchars($user['rasi_4_4']); ?>"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <label for="amsam_table">Amsam / அம்சம்:</label>
+                <table id="amsam_table">
+                    
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="amsam_1_1" value="<?php echo htmlspecialchars($user['amsam_1_1']); ?>"></td>
+                            <td><input type="text" name="amsam_1_2" value="<?php echo htmlspecialchars($user['amsam_1_2']); ?>"></td>
+                            <td><input type="text" name="amsam_1_3" value="<?php echo htmlspecialchars($user['amsam_1_3']); ?>"></td>
+                            <td><input type="text" name="amsam_1_4" value="<?php echo htmlspecialchars($user['amsam_1_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="amsam_2_1" value="<?php echo htmlspecialchars($user['amsam_2_1']); ?>"></td>
+                            <td colspan="2"  rowspan="2">AMSAM / அம்சம்</td>
+                                
+                            </td>
+                            <td><input type="text" name="amsam_2_4" value="<?php echo htmlspecialchars($user['amsam_2_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="amsam_3_1" value="<?php echo htmlspecialchars($user['amsam_3_1']); ?>"></td>
+                            <td><input type="text" name="amsam_3_4" value="<?php echo htmlspecialchars($user['amsam_3_4']); ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="amsam_4_1" value="<?php echo htmlspecialchars($user['amsam_4_1']); ?>"></td>
+                            <td><input type="text" name="amsam_4_2" value="<?php echo htmlspecialchars($user['amsam_4_2']); ?>"></td>
+                            <td><input type="text" name="amsam_4_3" value="<?php echo htmlspecialchars($user['amsam_4_3']); ?>"></td>
+                            <td><input type="text" name="amsam_4_4" value="<?php echo htmlspecialchars($user['amsam_4_4']); ?>"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                
+
+
+                <label for="profile_image">Profile Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+                <img id="profile_image_preview" src="<?php echo htmlspecialchars($user['image']); ?>"   alt="Profile Image">
+
+
+                
+                <button type="submit">Update Profile</button>
+                
+
         </form>
+
+
+
+
         <form action="logout.php" method="post">
             <button type="submit" class="logout-button">Logout</button>
         </form>
-    </div>
+    </section>
+</main>
+
+<script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('profile_image_preview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+
+
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f5f7fa;
@@ -6,6 +5,13 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+}
+
+/* Container for maximum width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
@@ -20,8 +26,11 @@ header h1 {
     font-size: 2.5em;
 }
 
+
+
 nav {
     margin-top: 10px;
+    text-align: center;
 }
 
 nav a {
@@ -29,14 +38,18 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.1em;
+    transition: color 0.3s;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+
+
+
 main {
-    padding: 20px;
+    padding: 20px 0;
 }
 
 section {
@@ -91,7 +104,7 @@ input[type="number"]:focus,
 input[type="date"]:focus,
 input[type="time"]:focus,
 select:focus {
-    border-color: #007bff;
+    border-color: #d127e0;
     outline: none;
 }
 
@@ -108,7 +121,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #d127e0;
+    background-color: #c11ec0;
 }
 
 table {
@@ -128,12 +141,53 @@ th {
     background-color: #f9f9f9;
 }
 
+/* Media Queries */
+@media (max-width: 1024px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+  
     form {
         grid-template-columns: 1fr;
     }
 
     button[type="submit"] {
         grid-column: span 1;
+    }
+
+    table, th, td {
+        font-size: 0.8em;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 480px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1em;
+        margin: 0 15px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 1em;
     }
 }
