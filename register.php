@@ -2,6 +2,8 @@
 session_start();
 include 'db_connect.php'; // Include database connection file
 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escaping the input
     $name = $conn->real_escape_string($_POST['name']);
@@ -60,48 +62,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amsam_4_4 = $conn->real_escape_string($_POST['amsam_4_4'] ?? '');
 
     // Image upload
-    if (isset($_FILES['image'])) {
-        $image = $_FILES['image']['name'] ?? '';
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $image = $_FILES['image']['name'];
         $target_dir = "uploads/";
-        $target_file = $target_dir . basename($image);
+        $imageFileType = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+        $unique_name = uniqid() . '.' . $imageFileType;
+        $target_file = $target_dir . $unique_name;
         $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         // Check if image file is a actual image or fake image
-        if ($image) {
-            $check = getimagesize($_FILES['image']['tmp_name']);
-            if ($check !== false) {
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-
-            // Check file size
-            if ($_FILES['image']['size'] > 500000) {
-                echo "Sorry, your file is too large.";
-                $uploadOk = 0;
-            }
-
-            // Allow certain file formats
-            if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                $uploadOk = 0;
-            }
-
-            // Check if $uploadOk is set to 0 by an error
-            if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
-            // If everything is ok, try to upload file
-            } else {
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                    echo "The file " . htmlspecialchars(basename($_FILES['image']['name'])) . " has been uploaded.";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
-            }
+        $check = getimagesize($_FILES['image']['tmp_name']);
+        if ($check !== false) {
+            $uploadOk = 1;
         } else {
-            $image = ''; // Handle no image case
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES['image']['size'] > 1000000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        } else {
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES['image']['name'])) . " has been uploaded.";
+                $image = $unique_name; // Use the unique name in the database
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+                $image = ''; // Handle error case
+            }
         }
     } else {
         $image = ''; // Handle no image case

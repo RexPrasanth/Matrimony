@@ -36,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="dashboard">
         <h2>Dashboard</h2>
         <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>! This is your dashboard.</p>
-        <!-- Add your dashboard content here -->
+        
     </div>
 </body>
 </html>

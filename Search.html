@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Profiles</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<header>
+    <h1>Thilai Matrimony</h1>
+    <nav>
+        <a href="home.html" class="home">Home</a>
+        <a href="offers.html" class="offers">Offers</a>
+        <a href="contacts.html" class="contacts">Contacts</a>
+        <a href="about.html" class="about">About</a>
+        <a href="profile.php" class="profile">Profile</a>
+        <a href="search.html" class="search">Search</a>
+    </nav>
+</header>
+<section>
+    <div class="container">
+        <h1>Search Profiles</h1>
+        <form action="search.php" method="post">
+            <label for="male">
+                <input type="radio" id="male" name="gender" value="male" required>
+                Male
+            </label>
+            <label for="female">
+                <input type="radio" id="female" name="gender" value="female" required>
+                Female
+            </label>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

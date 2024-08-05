@@ -2,6 +2,8 @@
 session_start();
 include 'db_connect.php';
 
+
+
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
@@ -9,9 +11,11 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
+
 // Fetch user data
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);
+
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
@@ -71,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amsam_4_3 = $conn->real_escape_string($_POST['amsam_4_3']);
     $amsam_4_4 = $conn->real_escape_string($_POST['amsam_4_4']);
     
+
     if (!empty($_FILES['image']['name'])) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -80,6 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image = $user['image'];
     }
 
+    
+    
     
     
     
@@ -136,6 +143,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             amsam_4_4='$amsam_4_4',
             image='$image'
             WHERE username='$username'";
+
+
+
 
     if ($conn->query($sql) === TRUE) {
         echo "Profile updated successfully.";

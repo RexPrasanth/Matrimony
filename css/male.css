@@ -7,11 +7,11 @@ body {
     line-height: 1.6;
 }
 
-/* Container for maximum width */
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 header {
@@ -45,21 +45,26 @@ nav a:hover {
     text-decoration: underline;
 }
 
-
-
-
-main {
-    padding: 20px 0;
-}
-
-
-
-section {
-    background-color: #fff;
-    padding: 30px;
+.profile-card {
+   
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
+    padding: 20px;
+    width: calc(33.333% - 40px);
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
+.profile-card img {
+    
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile-card h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
