@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Female Profiles</title>
-    <link rel="stylesheet" href="css/home.css">
+    <title>Male Profiles</title>
+    <link rel="stylesheet" href="css/male.css">
 </head>
 <body>
 <header>
@@ -18,14 +18,11 @@
         <a href="search.html" class="search">Search</a>
     </nav>
 </header>
-<section>
-    <div class="container">
-        <h1>Female Profiles</h1>
-        <!-- Add the profile list here -->
-    </div>
-</section>
+
 </body>
-</html> 
+</html>
+
+
 <?php
 include 'db_connect.php';
 
@@ -34,20 +31,23 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        // Construct the image path using the image column value
         $imagePath = 'uploads/' . $row["image"];
-        // Use a default image if the image file doesn't exist
         if (!file_exists($imagePath) || empty($row["image"])) {
             $imagePath = 'uploads/default-profile.jpg';
         }
-        echo '<div class="profile-card">';
+        $name = htmlspecialchars($row["name"]);
+        $education = htmlspecialchars($row["education"]);
+        $birthdate = htmlspecialchars($row["birthdate"]);
+        $userId = htmlspecialchars($row["id"]); // Assuming you have a unique ID for each user
+
+        echo '<div class="profile-card" onclick="window.location.href=\'profile_view.php?id=' . $userId . '\'">';
         echo '<img src="' . $imagePath . '" alt="Profile Image">';
-        echo '<h2>' . $row["name"] . '</h2>';
+        echo '<h2>' . $name . '</h2>';
+        echo '<h3>' . $education . '</h3>';
+        echo '<p>' . $birthdate . '</p>';
         echo '</div>';
     }
 } else {
     echo "0 results";
 }
 $conn->close();
-?>
-

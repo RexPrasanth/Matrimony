@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #d127e0;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.profile-view {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-header .profile-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    margin-right: 320px; /* Adjust to create space for the image */
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.profile-details h3 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.profile-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.profile-details h4 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.profile-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-header .profile-image {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .profile-info {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 1em;
+        margin: 0 10px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.5em;
+    }
+
+    .profile-details h3 {
+        font-size: 1.2em;
+    }
+}

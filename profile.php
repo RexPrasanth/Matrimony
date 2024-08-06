@@ -40,6 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $father_job = $conn->real_escape_string($_POST['father_job']);
     $mother_name = $conn->real_escape_string($_POST['mother_name']);
     $mother_job = $conn->real_escape_string($_POST['mother_job']);
+
+    $address = $conn->real_escape_string($_POST['address']);
+
     $elder_brother_married = $conn->real_escape_string($_POST['elder_brother_married']);
     $elder_brother_unmarried = $conn->real_escape_string($_POST['elder_brother_unmarried']);
     $younger_brother_married = $conn->real_escape_string($_POST['younger_brother_married']);
@@ -107,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             father_job='$father_job',
             mother_name='$mother_name',
             mother_job='$mother_job',
+            address='$address',
             elder_brother_married='$elder_brother_married',
             elder_brother_unmarried='$elder_brother_unmarried',
             younger_brother_married='$younger_brother_married',
@@ -228,6 +232,9 @@ $conn->close();
 
             <label for="mother_job">Mother's Job:</label>
             <input type="text" id="mother_job" name="mother_job" value="<?php echo htmlspecialchars($user['mother_job']); ?>" required>
+
+            <label for="address">Address / முகவரி:</label>
+            <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($user['address']); ?>" required>
 
 
 

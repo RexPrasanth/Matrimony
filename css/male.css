@@ -46,7 +46,8 @@ nav a:hover {
 }
 
 .profile-card {
-   
+
+    float: inline-start;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
@@ -67,4 +68,16 @@ nav a:hover {
 .profile-card h2 {
     margin: 0;
     font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: calc(100% - 40px);
+    }
 }
