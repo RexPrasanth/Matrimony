@@ -207,6 +207,36 @@ if (isset($_GET['id'])) {
                     </tbody>
                 </table>
 
+            <h4>AMSAM / அம்சம்</h4>
+            <table id="amsam_table">
+                    
+                <tbody>
+                        <tr>
+                            <td><?php echo $amsam_1_1; ?></td>
+                            <td><?php echo $amsam_1_2; ?></td>
+                            <td><?php echo $amsam_1_3; ?></td>
+                            <td><?php echo $amsam_1_4; ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $amsam_2_1; ?></td>
+                            <td colspan="2"  rowspan="2">AMSAM / அம்சம்</td>
+                                
+                            </td>
+                            <td><?php echo $amsam_2_4; ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $amsam_3_1; ?></td>
+                            <td><?php echo $amsam_3_4; ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo $amsam_4_1; ?></td>
+                            <td><?php echo $amsam_4_2; ?></td>
+                            <td><?php echo $amsam_4_3; ?></td>
+                            <td><?php echo $amsam_4_4; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+
 
         
 

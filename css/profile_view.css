@@ -130,6 +130,9 @@ th {
     .profile-info {
         margin: 0;
     }
+    table, th, td {
+        font-size: 0.8em;
+    }
 }
 
 @media (max-width: 480px) {
