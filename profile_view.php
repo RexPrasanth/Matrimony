@@ -115,54 +115,59 @@ if (isset($_GET['id'])) {
     <div class="profile-header">
         <img src="<?php echo $imagePath; ?>" alt="Profile Image" class="profile-image">
         <div class="profile-info">
-            <h2>பெயர் :  <?php echo $name; ?></h2>
-            <p>கல்வி :  <?php echo $education; ?></p>
-            <p >பிறந்த நாள் தேதி :  <?php echo $birthdate; ?></p>
-            <p >பிறந்த நேரம் :  <?php echo $birthtime; ?></p>
+            <h2>பெயர் :  <?php echo $name; ?></b></h2>
+            <p><b>கல்வி :  <?php echo $education; ?></b></p>
+            <p><b>பிறந்த நாள் தேதி :  <?php echo $birthdate; ?></b></p>
+            <p><b>பிறந்த நேரம் :  <?php echo $birthtime; ?></b></p>
         </div>
     </div>
     <div class="profile-details">
-        <h3> Information</h3>
+        <h3><b> தகவல்</b></h3>
 
-        <b><b>தந்தையின் பெயர் :  <?php echo $father_name; ?></b></p>
-        <p><b>தந்தையின் தொழில் அல்லது வேலை :  </b><?php echo $father_job; ?></b></p>
-        <p><b>தாயின் பெயர் :  <?php echo $mother_name; ?></b></p>
-        <p><b>தாயின் தொழில் அல்லது வேலை :  </b><?php echo $mother_job; ?></b></p>
-        <p><b>பிறந்த இடம் :  <?php echo $place_of_birth; ?></b></p>
-        <p><b>வேலை அல்லது வியாபாரம் :  <?php echo $job_or_business; ?></b></p>
+
+        <p><b> வேலை :  <?php echo $job_or_business; ?></b></p>
         <p><b> மாத வருமானம் :  <?php echo $per_month_income; ?></b></p>
         <p><b>Height / உயரம் : <?php echo $height;  ?></b></p>
-        
-        <h3>Address</h3>
-        <p><?php echo $address;  ?></p>
-        <p>தொலைபேசி எண்:  <?php echo $phone_number; ?></p>
+        <p><b>பிறந்த இடம் :  <?php echo $place_of_birth; ?></b></p>
 
-        <h4>உறவினர் தகவல்<h4>
+        <b><b>தந்தையின் பெயர் :  <?php echo $father_name; ?></b></p>
+        <p><b>தந்தையின் வேலை :  <?php echo $father_job; ?></b></p>
+        <p><b>தாயின் பெயர் :  <?php echo $mother_name; ?></b></p>
+        <p><b>தாயின் வேலை :  <?php echo $mother_job; ?></b></p>
+        
+        
+        
+        
+        <h3><b>முகவரி</b></h3>
+        <p><b><?php echo $address;  ?></b></p>
+        <p><b>தொலைபேசி எண்:  <?php echo $phone_number; ?></b></p>
+
+        <h4><b>உறவினர் தகவல்</b><h4>
 
         <table>
                     <tr>
                         
-                        <th>Relationship </th>
-                        <th>Married / திருமணமான</th>
-                        <th>Unmarried / திருமணமாகாத</th>
+                        <th>உறவு</th>
+                        <th>திருமணமான</th>
+                        <th>திருமணமாகாத</th>
                     </tr>
                     <tr>
-                        <td><b>பெரியசகோதரர்:</b></td>
+                        <td><b>பெரிய சகோதரர்:</b></td>
                         <td><?php echo $elder_brother_married; ?></td>
                         <td><?php echo $elder_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளையசகோதரர்:</b></td>
+                        <td><b>இளைய சகோதரர்:</b></td>
                         <td><?php echo $younger_brother_married; ?></td>
                         <td><?php echo $younger_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>பெரியசகோதரி:</b></td>
+                        <td><b>பெரிய சகோதரி:</b></td>
                         <td><?php echo $elder_sister_married; ?></td>
                         <td><?php echo $elder_sister_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளையசகோதரி:</b></td>
+                        <td><b>இளைய சகோதரி:</b></td>
                         <td><?php echo $younger_sister_married; ?></td>
                         <td><?php echo $younger_sister_unmarried; ?></td>
                     </tr>
@@ -173,9 +178,9 @@ if (isset($_GET['id'])) {
 
 
 
-        <h3>Occupation</h3>
-        <p>Caste / ஜாதி:  <?php echo $caste; ?></p>
-        <p>Sub-caste / துணை ஜாதி:  <?php echo $subcaste; ?></p>
+        <h3><b>ஜாதி</b></h3>
+        <p><b>Caste / ஜாதி:  <?php echo $caste; ?></b></p>
+        <p><b>Sub-caste / துணை ஜாதி:  <?php echo $subcaste; ?></b></p>
 
         <h3>Rasi / ராசி</h3>
         <table id="rasi_table">

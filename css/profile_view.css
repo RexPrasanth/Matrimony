@@ -112,6 +112,8 @@ th {
 }
 
 
+
+
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
     .profile-header {
@@ -129,9 +131,6 @@ th {
     
     .profile-info {
         margin: 0;
-    }
-    table, th, td {
-        font-size: 0.8em;
     }
 }
 
