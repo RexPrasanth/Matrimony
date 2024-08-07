@@ -132,6 +132,11 @@ th {
     .profile-info {
         margin: 0;
     }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -146,5 +151,10 @@ th {
 
     .profile-details h3 {
         font-size: 1.2em;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
     }
 }

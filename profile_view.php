@@ -34,6 +34,11 @@ if (isset($_GET['id'])) {
         $mother_name = htmlspecialchars($row["mother_name"]);
         $mother_job = htmlspecialchars($row["mother_job"]);
         $address = htmlspecialchars($row["address"]);
+
+
+        $house = htmlspecialchars($row["house"]);
+        $property = htmlspecialchars($row["property"]);
+
         $elder_brother_married = htmlspecialchars($row["elder_brother_married"]);
         $elder_brother_unmarried = htmlspecialchars($row["elder_brother_unmarried"]);
         $younger_brother_married = htmlspecialchars($row["younger_brother_married"]);
@@ -141,10 +146,13 @@ if (isset($_GET['id'])) {
         <h3><b>முகவரி</b></h3>
         <p><b><?php echo $address;  ?></b></p>
         <p><b>தொலைபேசி எண்:  <?php echo $phone_number; ?></b></p>
+        <p><b> வீடு:  <?php echo $house; ?></b></p>
+        <p><b>சொத்து விவரங்கள்:  <?php echo $property; ?></b></p>
 
         <h4><b>உறவினர் தகவல்</b><h4>
 
         <table>
+                <tbody>
                     <tr>
                         
                         <th>உறவு</th>
@@ -152,26 +160,27 @@ if (isset($_GET['id'])) {
                         <th>திருமணமாகாத</th>
                     </tr>
                     <tr>
-                        <td><b>பெரிய சகோதரர்:</b></td>
+                        <td><b>பெரியசகோதரர்:</b></td>
                         <td><?php echo $elder_brother_married; ?></td>
                         <td><?php echo $elder_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளைய சகோதரர்:</b></td>
+                        <td><b>இளையசகோதரர்:</b></td>
                         <td><?php echo $younger_brother_married; ?></td>
                         <td><?php echo $younger_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>பெரிய சகோதரி:</b></td>
+                        <td><b>பெரியசகோதரி:</b></td>
                         <td><?php echo $elder_sister_married; ?></td>
                         <td><?php echo $elder_sister_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளைய சகோதரி:</b></td>
+                        <td><b>இளையசகோதரி:</b></td>
                         <td><?php echo $younger_sister_married; ?></td>
                         <td><?php echo $younger_sister_unmarried; ?></td>
                     </tr>
-                </table>
+                    </tbody>    
+            </table>
 
 
 
@@ -181,6 +190,9 @@ if (isset($_GET['id'])) {
         <h3><b>ஜாதி</b></h3>
         <p><b>Caste / ஜாதி:  <?php echo $caste; ?></b></p>
         <p><b>Sub-caste / துணை ஜாதி:  <?php echo $subcaste; ?></b></p>
+
+        <p><b>ராசி-நட்சத்திரம்:  <?php echo $rasi; ?></b></p>
+        
 
         <h3>Rasi / ராசி</h3>
         <table id="rasi_table">
