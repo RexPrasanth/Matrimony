@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thilai Matrimony - தொடர்புக்கு</title>
+    <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+<header>
+    <h1>Thilai Matrimony</h1>
+    <nav>
+        <a href="home.html" class="home">முகப்பு</a>
+        <a href="offers.html" class="offers">சலுகைகள்</a>
+        <a href="contacts.html" class="contacts">தொடர்பு</a>
+        <a href="about.html" class="about">பற்றி</a>
+        <a href="profile.php" class="profile">சுயவிவரம்</a>
+        <a href="search.html" class="search">தேடல்</a>
+    </nav>
+</header>
+
+<section>
+    <div class="container">
+        <h1>தொடர்பு கொள்ள</h1>
+        <p>Thilai Matrimony உடன் தொடர்பு கொள்ள, கீழே உள்ள தகவல்களைப் பயன்படுத்தவும்:</p>
+        
+        <h2>முகவரி</h2>
+        <p>திலைகள் திருமண தகவல் மையம்,<br>
+        123, திருக்கடையூர் தெரு,<br>
+        சென்னை - 600001,<br>
+        தமிழ்நாடு, இந்தியா.</p>
+
+        <h2>தொலைபேசி</h2>
+        <p>044-12345678</p>
+
+        <h2>தொடர்பு கொள்ள</h2>
+        <form action="send_message.php" method="POST">
+            <div class="form-group">
+                <label for="name">பெயர்:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">மின்னஞ்சல்:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">தொலைபேசி எண்:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">செய்தி:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">செய்தியை அனுப்பு</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Thilai Matrimony. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+</footer>
+
+</body>
+</html>

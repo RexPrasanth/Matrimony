@@ -150,37 +150,37 @@ if (isset($_GET['id'])) {
         <p><b>சொத்து விவரங்கள்:  <?php echo $property; ?></b></p>
 
         <h4><b>உறவினர் தகவல்</b><h4>
+        <table id="relationship">
 
-        <table>
                 <tbody>
                     <tr>
                         
                         <th>உறவு</th>
-                        <th>திருமணமான</th>
-                        <th>திருமணமாகாத</th>
+                        <th>திருமண மான</th>
+                        <th>திருமண மாகாத</th>
                     </tr>
                     <tr>
-                        <td><b>பெரியசகோதரர்:</b></td>
+                        <td>மூத்த சகோதரர்</td>
                         <td><?php echo $elder_brother_married; ?></td>
                         <td><?php echo $elder_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளையசகோதரர்:</b></td>
+                        <td>இளைய சகோதரர்</td>
                         <td><?php echo $younger_brother_married; ?></td>
                         <td><?php echo $younger_brother_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>பெரியசகோதரி:</b></td>
+                        <td>மூத்த சகோதரி</td>
                         <td><?php echo $elder_sister_married; ?></td>
                         <td><?php echo $elder_sister_unmarried; ?></td>
                     </tr>
                     <tr>
-                        <td><b>இளையசகோதரி:</b></td>
+                        <td>இளைய சகோதரி</td>
                         <td><?php echo $younger_sister_married; ?></td>
                         <td><?php echo $younger_sister_unmarried; ?></td>
                     </tr>
-                    </tbody>    
-            </table>
+                </tbody>    
+        </table>
 
 
 

@@ -8,11 +8,7 @@ body {
 }
 
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+
 
 header {
     background-color: #d127e0;
@@ -46,8 +42,12 @@ nav a:hover {
 }
 
 .profile-card {
-
+    
     float: inline-start;
+    margin-top: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
@@ -55,6 +55,8 @@ nav a:hover {
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    
+    
 }
 
 .profile-card img {
@@ -62,7 +64,7 @@ nav a:hover {
     width: 300px;
     height: 400px;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .profile-card h2 {
@@ -72,12 +74,20 @@ nav a:hover {
 
 @media (max-width: 768px) {
     .profile-card {
+        
+        margin-top: 8px;
+        margin-left: 20px;
+        margin-right: 20px;
         width: calc(100% - 40px);
+
     }
 }
 
 @media (max-width: 480px) {
     .profile-card {
+        margin-top: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
         width: calc(100% - 40px);
     }
 }

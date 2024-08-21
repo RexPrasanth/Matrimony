@@ -6,7 +6,15 @@ body {
     box-sizing: border-box;
 }
 
+.container {
+    
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
 header {
+    
     background-color: #d127e0;
     color: #fff;
     padding: 1em 0;
@@ -15,6 +23,10 @@ header {
 
 header h1 {
     margin: 0;
+}
+
+nav {
+    margin-top: 10px;
 }
 
 nav a {
@@ -104,11 +116,11 @@ th, td {
     padding: 10px;
     text-align: center;
     border: 1px solid #ddd;
-    font-size: 0.9em;
+    font-size: 0.6em;
 }
 
 th {
-    background-color: #f9f9f9;
+    background-color: #ec8abb;
 }
 
 

@@ -15,7 +15,7 @@
         <a href="contacts.html" class="contacts">Contacts</a>
         <a href="about.html" class="about">About</a>
         <a href="profile.php" class="profile">Profile</a>
-        <a href="search.html" class="search">Search</a>
+        
     </nav>
 </header>
 
