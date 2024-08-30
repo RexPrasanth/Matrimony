@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thilai Matrimony Login</title>
+    <title>JoGo Matrimony Login</title>
     <link rel="stylesheet" href="css/login.css">
    
 </head>
 <body>
 
 <header>
-        <h1>Thilai Matrimony Log in</h1>
+        <h1>JoGo Matrimony Log in</h1>
         <nav>
             <a href="home.html" class="home">Home</a>
             <a href="offers.html" class="offers">Offers</a>
@@ -43,7 +43,7 @@
 
 <?php
 session_start();
-include 'db_connect.php'; // Include database connection file
+include 'db_connect.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize user input

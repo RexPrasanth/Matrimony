@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    background-color: #d127e0;
+    color: white;
+    padding: 5px 0;
+    text-align: center;
+  }
+  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+  }
+  
+  header nav a:hover {
+    background-color: #555;
+  }

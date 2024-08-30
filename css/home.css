@@ -1,253 +1,156 @@
+/* General Styles */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-/* Container for maximum width */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 header {
-    background-color: #d127e0;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+  background-color: #d127e0;
+  color: white;
+  padding: 5px 0;
+  text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: inline-block;
+}
+
+header nav a:hover {
+  background-color: #555;
+}
+
+/* Carousel Section */
+.carousel-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swiper-container {
+  margin-right: 8%;
+  margin-left: 8%;
+  width: 1600px;
+  height: 500px; /* Adjust height as needed */
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination {
+  bottom: 10px !important;
 }
 
 
 
-nav {
-    margin-top: 10px;
-    text-align: center;
+
+
+/* Calendar Section */
+.calendar-container {
+  padding: 20px;
+  background-color: #eedbed;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-nav a {
-    color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: color 0.3s;
+.calendar h2 {
+  margin-bottom: 15px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.gold-rate-container {
+  padding: 20px;
+  background-color: #eedbed;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-
-
-
-main {
-    padding: 20px 0;
+.gold-rate-container h2 {
+  margin-bottom: 15px;
 }
 
-.container-fluid.main{
-    position: relative; /* To make the navbar positions relative to this container */
-    padding: 0;
-  }
-  
-  .navbar-default {
-    background-image: none;
-    background-color: transparent; /* Make the menu become transparent */
-    border-radius: 0px;
-    border: 0;
-    box-shadow: none;
-    padding: 10px;
-    position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
-  }
-  
-  .navbar-default .navbar-brand {
-    font-family: Verdana;
-    color: #ffffff;
-    font-size: 20px;
-  }
-  
-  .navbar-default .navbar-brand:hover,
-  .navbar-default .navbar-brand:focus {
-    color: #ffffff;
-    background-color: transparent;
-  }
-  
-  .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
-  }
-  
-  .navbar-default .navbar-nav > li > a:hover,
-  .navbar-default .navbar-nav > li > a:focus {
-    color: #ffffff;
-    background-color: transparent;
-  }
-  
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-  }
-  
-  .navbar-default .navbar-toggle:hover {
-    background-color: transparent;
-  }
-  
-  .navbar-default .navbar-toggle:focus {
-    background-color: transparent;
-  }
-  
-  .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
-  }
-  
-  .carousel .background {
-    background-position: center center;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 700px;
-  }
-  
-  @media (max-width:991px) {
-    .carousel .background {
-      background-size: cover; /* To make the background image looks good */
-    }
-  }
-  
-  .carousel .background.a {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/92090/pexels-photo-92090-large.jpeg");
-  }
-  
-  .carousel .background.b {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/93750/pexels-photo-93750-large.jpeg");
-  }
-  
-  .carousel .background.c {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/76827/bahia-ocean-bay-boat-76827-large.jpeg");
-  }
-  
-  .carousel-fade .carousel-inner .item {
-    opacity: 0;
-    transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
-  }
-  
-  .carousel-fade .carousel-inner .active {
-    opacity: 1;
-  }
-  
-  /* CSS Hack to trigger GPU for smooth transition */
-  @media all and (transform-3d),
-  (-webkit-transform-3d) {
-    .carousel-fade .carousel-inner > .item.next,
-    .carousel-fade .carousel-inner > .item.active.right {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.prev,
-    .carousel-fade .carousel-inner > .item.active.left {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-    .carousel-fade .carousel-inner > .item.next.left,
-    .carousel-fade .carousel-inner > .item.prev.right,
-    .carousel-fade .carousel-inner > .item.active {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  /* CSS Hack to trigger GPU for smooth transition */
-  
-  .covertext {
-    position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
-    top: 200px; /* The distance between the div with the top of document */
-    left: 0px; /* Make the div full width */
-    right: 0px; /* Make the div full width */
-  }
-  
-  .title {
-    font-family: Verdana;
-    font-weight: 600;
-    font-size: 60px;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  .subtitle {
-    font-family: Verdana;
-    font-size: 23px;
-    color: #ffffff;
-    text-align: center;
-  }
-  
-  .explore {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .explore .btn-lg,
-  .explore .btn-lg:hover {
-    border-radius: 30px;
-    padding: 15px 25px;
-    font-size: 22px;
-    background-image: none;
-    background-color: #FF4000;
-    border-color: #FF4000;
-    color: #ffffff;
-  }
-  
-  .btn,
-  .btn:hover {
-    border-radius: 0px;
-    background-image: none;
-    background-color: #FF4000;
-    border-color: #FF4000;
-    color: #ffffff;
-    margin-bottom: 20px;
-    box-shadow: none;
-    outline: none;
-  }
-  
-  .btn:focus,
-  .btn:active:focus,
-  .btn.active:focus,
-  .btn.focus,
-  .btn:active.focus,
-  .btn.active.focus {
-    color: #ffffff;
-    outline: none;
-  } 
-
-
-section {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
+.gold-rate {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
 }
- 
 
 @media (max-width: 768px) {
-    .carousel-item img {
-        height: 300px; /* Adjust height for smaller screens */
-    }
+  .swiper-container {
+      height: 250px; /* Adjust height for smaller screens */
+  }
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        width: 40px;
-        height: 40px;
-    }
+  .swiper-slide img {
+      object-fit: cover; /* Maintain cover for smaller screens */
+      height: auto;
+      max-height: 250px; /* Ensure image doesn't exceed the container height */
+  }
+
+  .calendar-container, .gold-rate-container {
+      width: 95%;
+  }
 }
 
+@media (max-width: 480px) {
+  /* Adjustments for screens up to 480px wide */
+
+  header nav a {
+    padding: 10px; /* Reduce padding for navigation links */
+    font-size: 12px; /* Adjust font size for better readability on small screens */
+  }
+
+  .swiper-container {
+    width: 100%; /* Ensure the carousel takes up the full width */
+    height: 200px; /* Reduce height for smaller screens */
+    margin-right: 0; /* Remove extra margins */
+    margin-left: 0; 
+  }
+
+  .swiper-slide img {
+    object-fit: cover; /* Maintain cover for smaller screens */
+    height: auto;
+    max-height: 200px; /* Ensure image doesn't exceed the container height */
+  }
+
+  .calendar-container, .gold-rate-container {
+    margin-top: 8px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: calc(100% - 40px);
+     /* Use full width on smaller screens */
+    margin: 10px auto; /* Adjust margin to fit smaller screens */
+    padding: 15px; /* Reduce padding for a more compact layout */
+  }
+
+  .gold-rate {
+    flex-direction: column; /* Stack gold rates vertically */
+    font-size: 1em; /* Adjust font size for readability */
+    align-items: center; /* Center-align the rates */
+  }
+
+  .gold-rate div {
+    margin-bottom: 10px; /* Add space between the rates */
+  }
+}

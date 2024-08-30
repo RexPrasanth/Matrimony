@@ -106,7 +106,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 <header>
-    <h1>Thilai Matrimony</h1>
+    <h1>JoGo Matrimony</h1>
     <nav>
         <a href="home.html" class="home">Home</a>
         <a href="offers.html" class="offers">Offers</a>

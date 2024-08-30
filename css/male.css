@@ -86,8 +86,8 @@ nav a:hover {
 @media (max-width: 480px) {
     .profile-card {
         margin-top: 8px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
         width: calc(100% - 40px);
     }
 }

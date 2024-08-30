@@ -179,7 +179,7 @@ $conn->close();
 </head>
 <body>
     <header>
-        <h1>Thilai Matrimony Uear Profile</h1>
+        <h1>JoGo Matrimony Uear Profile</h1>
         <nav>
             <a href="home.html" class="home">Home</a>
             <a href="offers.html" class="offers">Offers</a>

@@ -9,37 +9,76 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/tamil_calendar.js" defer></script>
-    <script src="js/newFile.js" defer></script>
+    <script src="js/gold_rates.js" defer></script>
+    
+    
 </head>
 <body>
 
 <header>
-    <h1>Thilai Matrimony</h1>
+    <h1>JoGo Matrimony</h1>
     <nav>
-        <a href="home.html" class="home">Home</a>
+        
         <a href="offers.html" class="offers">Offers</a>
         <a href="contacts.html" class="contacts">Contacts</a>
         <a href="about.html" class="about">About</a>
         <a href="Search.html" class="search">Search</a>
         <a href="profile.php" class="profile">Profile</a>
-        
-        
     </nav>
 </header>
 
-
-
-
-<section>
-    <div class="calendar">
-    <h2>Today's Date / இன்றைய தேதி</h2>
-    <div id="english-date"></div>
-    <div id="tamil-date">தமிழ் தேதி: 16 ஆடி 2024</div>
-    <div id="ravukalam"></div>
-    <div id="yamagandam"></div>
+<!-- Carousel Section at the Top -->
+<section class="carousel-container">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/image1.jpg" alt="Image 1"></div>
+            <div class="swiper-slide"><img src="images/image2.jpg" alt="Image 2"></div>
+            <div class="swiper-slide"><img src="images/image3.jpg" alt="Image 3"></div>
+            <!-- Add more slides as needed -->
+        </div>
+        
+        <!-- Add Pagination -->
+        
+        
+       
+    </div>
 </section>
 
+<!-- Calendar Section Below the Carousel -->
+<section class="calendar-container">
+    <div class="calendar">
+        <h2>இன்றைய தேதி</h2>
+        <div id="english-date"></div>
+        <div id="tamil-date">தமிழ் தேதி: 16 ஆடி 2024</div>
+        <div id="ravukalam"></div>
+        <div id="yamagandam"></div>
+    </div>
+</section>
 
+<section class="gold-rate-container">
+    <h2>தங்கம் நேரடி விலை</h2>
+    <div class="gold-rate">
+        <div>24K: <span id="rate-24k">N/A</span> INR</div>
+        <div>22K: <span id="rate-22k">N/A</span> INR</div>
+        <div>18K: <span id="rate-18k">N/A</span> INR</div>
+    </div>
+</section>
+
+<script>
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+</script>
 
 </body>
 </html>
