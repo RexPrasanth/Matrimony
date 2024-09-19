@@ -103,9 +103,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
             </div>
             <button type="submit">Login</button>
         </form>
-        <form action="home.php" method="post">
-            <button type="submit" class="home-button">Go to Home</button>
-        </form>
+        
     </div>
     <script>
         function togglePassword() {
