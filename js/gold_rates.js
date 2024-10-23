@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Simulated gold rates (You would replace this with API data)
     const goldRates = {
-        '24k': 7315,  // Example value in INR per gram
-        '22k': 6705,  // Example value in INR per gram
-        '18k': 5486   // Example value in INR per gram
+        '24k': 8007,  // Example value in INR per gram
+        '22k': 7340,  // Example value in INR per gram
+        '18k': 6055   // Example value in INR per gram
     };
 
     // Update the gold rates on the page
