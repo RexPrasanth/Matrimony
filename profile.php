@@ -83,15 +83,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amsam_4_4 = $conn->real_escape_string($_POST['amsam_4_4']);
     
 
-    if (!empty($_FILES['image']['name'])) {
+    // Handle file upload
+    $image = $user['image']; // Default to current image
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-        $image = $target_file;
-    } else {
-        $image = $user['image'];
-    }
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
+        // Check if image file is a valid image type
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            // Check file size (e.g., 2MB limit)
+            if ($_FILES["image"]["size"] <= 2000000) {
+                // Allow certain file formats (jpg, png, jpeg, gif)
+                if (in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+                    // Try to move the uploaded file
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        $image = $target_file; // Set new image path
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                } else {
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                }
+            } else {
+                echo "Sorry, your file is too large.";
+            }
+        } else {
+            echo "File is not an image.";
+        }
+    } elseif ($_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE) {
+        // Display any file upload error except when no file is uploaded
+        echo "Error uploading file: " . $_FILES['image']['error'];
+    }
     
     
     
@@ -354,16 +378,14 @@ $conn->close();
                 
 
 
-                <label for="profile_image">Profile Image:</label>
-                <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
-                <img id="profile_image_preview" src="<?php echo htmlspecialchars($user['image']); ?>"   alt="Profile Image">
+                <label for="image">Profile Image:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <br>
+        <img id="profile_image_preview" src="<?php echo htmlspecialchars($user['image']); ?>" alt="Profile Image" style="max-width:200px;">
 
-
-                
-                <button type="submit">Update Profile</button>
-                
-
-        </form>
+        <br><br>
+        <button type="submit">Update Profile</button>
+    </form>
 
 
 
@@ -375,14 +397,16 @@ $conn->close();
 </main>
 
 <script>
-        function previewImage(event) {
+        // Preview image
+        var imageInput = document.getElementById('image');
+        imageInput.addEventListener('change', function(event) {
             var reader = new FileReader();
             reader.onload = function() {
                 var output = document.getElementById('profile_image_preview');
                 output.src = reader.result;
             };
             reader.readAsDataURL(event.target.files[0]);
-        }
+        });
     </script>
 
 

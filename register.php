@@ -77,11 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $target_file = $target_dir . $unique_name;
         $uploadOk = 1;
 
-        // Check if image file is a actual image or fake image
+        // Check if image file is an actual image
         $check = getimagesize($_FILES['image']['tmp_name']);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
+        if ($check === false) {
             echo "File is not an image.";
             $uploadOk = 0;
         }
@@ -98,18 +96,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $uploadOk = 0;
         }
 
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-        } else {
+        // If all checks pass, upload the file
+        if ($uploadOk == 1) {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
                 echo "The file " . htmlspecialchars(basename($_FILES['image']['name'])) . " has been uploaded.";
-                $image = $unique_name; // Use the unique name in the database
+                $image = $unique_name; // Save the unique name to the database
             } else {
                 echo "Sorry, there was an error uploading your file.";
                 $image = ''; // Handle error case
             }
         }
+
+        
     } else {
         $image = ''; // Handle no image case
     }
