@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $image = ''; // Handle no image case
     }
 
-    $username = $name;
+    $username = $phone_number;
     $password = $birthdate;
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
