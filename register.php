@@ -68,49 +68,76 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amsam_4_3 = $conn->real_escape_string($_POST['amsam_4_3'] ?? '');
     $amsam_4_4 = $conn->real_escape_string($_POST['amsam_4_4'] ?? '');
 
-    // Image upload
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $image = $_FILES['image']['name'];
-        $target_dir = "uploads/";
-        $imageFileType = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-        $unique_name = uniqid() . '.' . $imageFileType;
-        $target_file = $target_dir . $unique_name;
-        $uploadOk = 1;
+  // Image upload
+if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+    $image = $_FILES['image']['name'];
+    $target_dir = "uploads/";
+    $imageFileType = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+    $unique_name = uniqid() . '.' . $imageFileType;
+    $target_file = $target_dir . $unique_name;
+    $uploadOk = 1;
 
-        // Check if image file is an actual image
-        $check = getimagesize($_FILES['image']['tmp_name']);
-        if ($check === false) {
-            echo "File is not an image.";
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        if ($_FILES['image']['size'] > 1000000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }
-
-        // Allow certain file formats
-        if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
-
-        // If all checks pass, upload the file
-        if ($uploadOk == 1) {
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                echo "The file " . htmlspecialchars(basename($_FILES['image']['name'])) . " has been uploaded.";
-                $image = $unique_name; // Save the unique name to the database
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-                $image = ''; // Handle error case
-            }
-        }
-
-        
+    // Check if the file is an actual image
+    $check = getimagesize($_FILES['image']['tmp_name']);
+    if ($check === false) {
+        echo "File is not an image.<br>";
+        $uploadOk = 0;
     } else {
-        $image = ''; // Handle no image case
+        echo "File is an image - " . $check["mime"] . ".<br>";
     }
+
+    // Check file size
+    if ($_FILES['image']['size'] > 1000000) {
+        echo "Sorry, your file is too large.<br>";
+        $uploadOk = 0;
+    } else {
+        echo "File size is within limit.<br>";
+    }
+
+    // Allow only certain file formats
+    if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
+        $uploadOk = 0;
+    } else {
+        echo "File format is allowed.<br>";
+    }
+
+    // Check for existing upload directory and permissions
+    if ($uploadOk == 1) {
+        if (!is_dir($target_dir)) {
+            if (mkdir($target_dir, 0777, true)) {
+                echo "Uploads directory created.<br>";
+            } else {
+                echo "Failed to create uploads directory.<br>";
+                $uploadOk = 0;
+            }
+        } else {
+            echo "Uploads directory exists.<br>";
+        }
+
+        // Attempt to upload the file
+        if ($uploadOk == 1 && move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES['image']['name'])) . " has been uploaded.<br>";
+            $image = $unique_name; // Save the unique name to the database
+        } else {
+            echo "Sorry, there was an error uploading your file.<br>";
+            echo "Debug info: File upload path: " . $target_file . "<br>";
+            echo "Debug info: Error code: " . $_FILES['image']['error'] . "<br>";
+            $image = ''; // Handle error case
+        }
+    } else {
+        echo "Image upload failed due to validation issues.<br>";
+    }
+
+} else {
+    $image = ''; // Handle no image case
+    echo "No image file was uploaded or there was an upload error.<br>";
+    if (isset($_FILES['image'])) {
+        echo "Upload error code: " . $_FILES['image']['error'] . "<br>";
+    }
+}
+
+
 
     $username = $phone_number;
     $password = $birthdate;
