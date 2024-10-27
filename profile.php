@@ -246,10 +246,19 @@ $conn->close();
             <input type="text" id="place_of_birth" name="place_of_birth" value="<?php echo htmlspecialchars($user['place_of_birth']); ?>" required>
 
             <label for="caste">Caste:</label>
-            <input type="text" id="caste" name="caste" value="<?php echo htmlspecialchars($user['caste']); ?>" required>
+             <select id="caste" name="caste">
+            <option value="Select">Select</option>
+            <option value="Mudaliyar" <?php echo (htmlspecialchars($user['caste']) == 'Mudaliyar') ? 'selected' : ''; ?>>Mudaliyar / முதலியார்</option>
+            </select>
 
-            <label for="subcaste">Subcaste:</label>
-            <input type="text" id="subcaste" name="subcaste" value="<?php echo htmlspecialchars($user['subcaste']); ?>" required>
+
+            <label for="subcaste">Sub-caste:</label>
+            <select id="subcaste" name="subcaste" required>
+            <option value="Select">Select</option>
+            <option value="Kaikolar" <?php echo (htmlspecialchars($user['subcaste']) == 'Kaikolar') ? 'selected' : ''; ?>>Kaikolar / கைகோளர்</option>
+            <option value="Agamudi" <?php echo (htmlspecialchars($user['subcaste']) == 'Agamudi') ? 'selected' : ''; ?>>Agamudi / அகமுடையார்</option>
+            </select>
+
 
             <label for="father_name">Father's Name:</label>
             <input type="text" id="father_name" name="father_name" value="<?php echo htmlspecialchars($user['father_name']); ?>" required>
@@ -267,7 +276,14 @@ $conn->close();
             <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($user['address']); ?>" required>
 
             <label for="house">House / வீடு:</label>
-            <input type="text" id="house" name="house" value="<?php echo htmlspecialchars($user['house']); ?>" required>
+            <select id="house" name="house" required>
+            <option value="Select">Select</option>
+            <option value="own house" <?php echo (htmlspecialchars($user['house']) == 'own house') ? 'selected' : ''; ?>>Own house / சொந்த வீடு</option>
+            <option value="rented house" <?php echo (htmlspecialchars($user['house']) == 'rented house') ? 'selected' : ''; ?>>Rented house / வாடகை வீடு</option>
+            </select>
+
+           
+
 
             <label for="property">Property details / சொத்து விவரங்கள்:</label>
             <input type="text" id="property" name="property" value="<?php echo htmlspecialchars($user['property']); ?>" required>
@@ -304,8 +320,47 @@ $conn->close();
                     </tr>
                 </table>
 
-            <label for="rasi">Rasi:</label>
-            <input type="text" id="rasi" name="rasi" value="<?php echo htmlspecialchars($user['rasi']); ?>" required>
+            <label for="rasi">Rasi-Natchathiram / ராசி-நட்சத்திரம்:</label>
+            <select id="rasi" name="rasi" required>
+            <option value="Select">Select</option>
+            <option value="மேஷம் - அசுவினி" <?php echo (htmlspecialchars($user['rasi']) == 'மேஷம் - அசுவினி') ? 'selected' : ''; ?>>மேஷம் - அசுவினி</option>
+            <option value="மேஷம் - பரணி" <?php echo (htmlspecialchars($user['rasi']) == 'மேஷம் - பரணி') ? 'selected' : ''; ?>>மேஷம் - பரணி</option>
+            <option value="மேஷம் - கார்த்திகை 1ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மேஷம் - கார்த்திகை 1ம் பாதம்') ? 'selected' : ''; ?>>மேஷம் - கார்த்திகை 1ம் பாதம்</option>
+            <option value="ரிஷபம் - கார்த்திகை 2, 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'ரிஷபம் - கார்த்திகை 2, 3, 4ம் பாதம்') ? 'selected' : ''; ?>>ரிஷபம் - கார்த்திகை 2, 3, 4ம் பாதம்</option>
+            <option value="ரிஷபம் - ரோகினி" <?php echo (htmlspecialchars($user['rasi']) == 'ரிஷபம் - ரோகினி') ? 'selected' : ''; ?>>ரிஷபம் - ரோகினி</option>
+            <option value="ரிஷபம் - மிருகசீரிஷம் 1, 2ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'ரிஷபம் - மிருகசீரிஷம் 1, 2ம் பாதம்') ? 'selected' : ''; ?>>ரிஷபம் - மிருகசீரிஷம் 1, 2ம் பாதம்</option>
+            <option value="மிதுனம் - மிருகசீரிஷம் 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மிதுனம் - மிருகசீரிஷம் 3, 4ம் பாதம்') ? 'selected' : ''; ?>>மிதுனம் - மிருகசீரிஷம் 3, 4ம் பாதம்</option>
+            <option value="மிதுனம் - திருவாதிரை" <?php echo (htmlspecialchars($user['rasi']) == 'மிதுனம் - திருவாதிரை') ? 'selected' : ''; ?>>மிதுனம் - திருவாதிரை</option>
+            <option value="மிதுனம் - புனர்பூசம் 1, 2, 3ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மிதுனம் - புனர்பூசம் 1, 2, 3ம் பாதம்') ? 'selected' : ''; ?>>மிதுனம் - புனர்பூசம் 1, 2, 3ம் பாதம்</option>
+            <option value="கடகம் - புனர்பூசம் 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'கடகம் - புனர்பூசம் 4ம் பாதம்') ? 'selected' : ''; ?>>கடகம் - புனர்பூசம் 4ம் பாதம்</option>
+            <option value="கடகம் - பூசம்" <?php echo (htmlspecialchars($user['rasi']) == 'கடகம் - பூசம்') ? 'selected' : ''; ?>>கடகம் - பூசம்</option>
+            <option value="கடகம் - ஆயில்யம்" <?php echo (htmlspecialchars($user['rasi']) == 'கடகம் - ஆயில்யம்') ? 'selected' : ''; ?>>கடகம் - ஆயில்யம்</option>
+            <option value="சிம்மம் - மகம்" <?php echo (htmlspecialchars($user['rasi']) == 'சிம்மம் - மகம்') ? 'selected' : ''; ?>>சிம்மம் - மகம்</option>
+            <option value="சிம்மம் - பூரம்" <?php echo (htmlspecialchars($user['rasi']) == 'சிம்மம் - பூரம்') ? 'selected' : ''; ?>>சிம்மம் - பூரம்</option>
+            <option value="சிம்மம் - உத்திரம் 1ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'சிம்மம் - உத்திரம் 1ம் பாதம்') ? 'selected' : ''; ?>>சிம்மம் - உத்திரம் 1ம் பாதம்</option>
+            <option value="கன்னி - உத்திரம் 2, 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'கன்னி - உத்திரம் 2, 3, 4ம் பாதம்') ? 'selected' : ''; ?>>கன்னி - உத்திரம் 2, 3, 4ம் பாதம்</option>
+            <option value="கன்னி - அஸ்தம்" <?php echo (htmlspecialchars($user['rasi']) == 'கன்னி - அஸ்தம்') ? 'selected' : ''; ?>>கன்னி - அஸ்தம்</option>
+            <option value="கன்னி - சித்திரை 1, 2ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'கன்னி - சித்திரை 1, 2ம் பாதம்') ? 'selected' : ''; ?>>கன்னி - சித்திரை 1, 2ம் பாதம்</option>
+            <option value="துலாம் - சித்திரை 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'துலாம் - சித்திரை 3, 4ம் பாதம்') ? 'selected' : ''; ?>>துலாம் - சித்திரை 3, 4ம் பாதம்</option>
+            <option value="துலாம் - சுவாதி" <?php echo (htmlspecialchars($user['rasi']) == 'துலாம் - சுவாதி') ? 'selected' : ''; ?>>துலாம் - சுவாதி</option>
+            <option value="துலாம் - விசாகம் 1, 2, 3ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'துலாம் - விசாகம் 1, 2, 3ம் பாதம்') ? 'selected' : ''; ?>>துலாம் - விசாகம் 1, 2, 3ம் பாதம்</option>
+            <option value="விருச்சிகம் - விசாகம் 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'விருச்சிகம் - விசாகம் 4ம் பாதம்') ? 'selected' : ''; ?>>விருச்சிகம் - விசாகம் 4ம் பாதம்</option>
+            <option value="விருச்சிகம் - அனுஷம்" <?php echo (htmlspecialchars($user['rasi']) == 'விருச்சிகம் - அனுஷம்') ? 'selected' : ''; ?>>விருச்சிகம் - அனுஷம்</option>
+            <option value="விருச்சிகம் - கேட்டை" <?php echo (htmlspecialchars($user['rasi']) == 'விருச்சிகம் - கேட்டை') ? 'selected' : ''; ?>>விருச்சிகம் - கேட்டை</option>
+            <option value="தனுசு - மூலம்" <?php echo (htmlspecialchars($user['rasi']) == 'தனுசு - மூலம்') ? 'selected' : ''; ?>>தனுசு - மூலம்</option>
+            <option value="தனுசு - பூராடம்" <?php echo (htmlspecialchars($user['rasi']) == 'தனுசு - பூராடம்') ? 'selected' : ''; ?>>தனுசு - பூராடம்</option>
+            <option value="தனுசு - உத்திராடம் 1ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'தனுசு - உத்திராடம் 1ம் பாதம்') ? 'selected' : ''; ?>>தனுசு - உத்திராடம் 1ம் பாதம்</option>
+            <option value="மகரம் - உத்திராடம் 2, 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மகரம் - உத்திராடம் 2, 3, 4ம் பாதம்') ? 'selected' : ''; ?>>மகரம் - உத்திராடம் 2, 3, 4ம் பாதம்</option>
+            <option value="மகரம் - திருவோணம்" <?php echo (htmlspecialchars($user['rasi']) == 'மகரம் - திருவோணம்') ? 'selected' : ''; ?>>மகரம் - திருவோணம்</option>
+            <option value="மகரம் - அவிட்டம் 1, 2ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மகரம் - அவிட்டம் 1, 2ம் பாதம்') ? 'selected' : ''; ?>>மகரம் - அவிட்டம் 1, 2ம் பாதம்</option>
+            <option value="கும்பம் - அவிட்டம் 3, 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'கும்பம் - அவிட்டம் 3, 4ம் பாதம்') ? 'selected' : ''; ?>>கும்பம் - அவிட்டம் 3, 4ம் பாதம்</option>
+            <option value="கும்பம் - சதயம்" <?php echo (htmlspecialchars($user['rasi']) == 'கும்பம் - சதயம்') ? 'selected' : ''; ?>>கும்பம் - சதயம்</option>
+            <option value="கும்பம் - பூரட்டாதி 1, 2, 3ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'கும்பம் - பூரட்டாதி 1, 2, 3ம் பாதம்') ? 'selected' : ''; ?>>கும்பம் - பூரட்டாதி 1, 2, 3ம் பாதம்</option>
+            <option value="மீனம் - பூரட்டாதி 4ம் பாதம்" <?php echo (htmlspecialchars($user['rasi']) == 'மீனம் - பூரட்டாதி 4ம் பாதம்') ? 'selected' : ''; ?>>மீனம் - பூரட்டாதி 4ம் பாதம்</option>
+            <option value="மீனம் - உத்திரட்டாதி" <?php echo (htmlspecialchars($user['rasi']) == 'மீனம் - உத்திரட்டாதி') ? 'selected' : ''; ?>>மீனம் - உத்திரட்டாதி</option>
+            <option value="மீனம் - ரேவதி" <?php echo (htmlspecialchars($user['rasi']) == 'மீனம் - ரேவதி') ? 'selected' : ''; ?>>மீனம் - ரேவதி</option>
+            </select>
+
             
                 
 

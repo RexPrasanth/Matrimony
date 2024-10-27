@@ -72,69 +72,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Image upload process
-if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-    $image = $_FILES['image']['name'];
-    $target_dir = "uploads/";
-    $imageFileType = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-    $unique_name = uniqid() . '.' . $imageFileType;
-    $target_file = $target_dir . $unique_name;
-    $uploadOk = 1;
+ // Image upload process
+ $image = '';
+ if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+     $target_dir = "/var/www/html/Matrimony/uploads/";  // Absolute path to ensure correct directory
+     $imageFileType = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+     $unique_name = uniqid() . '.' . $imageFileType;
+     $target_file = $target_dir . $unique_name;
 
-    // Check if the file is an actual image
-    $check = getimagesize($_FILES['image']['tmp_name']);
-    if ($check === false) {
-        echo "Error: File is not an image.<br>";
-        $uploadOk = 0;
-    } else {
-        echo "File is an image - " . $check["mime"] . ".<br>";
-    }
+     // Check if the file is a valid image
+     $check = getimagesize($_FILES['image']['tmp_name']);
+     if ($check !== false && $_FILES['image']['size'] <= 10000000 && in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
+         if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
 
-    // Check file size
-    if ($_FILES['image']['size'] > 1000000) {
-        echo "Error: File size is too large.<br>";
-        $uploadOk = 0;
-    } else {
-        echo "File size is within the limit.<br>";
-    }
-
-    // Allow only specific file formats
-    if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-        echo "Error: Only JPG, JPEG, PNG & GIF files are allowed.<br>";
-        $uploadOk = 0;
-    } else {
-        echo "File format is allowed.<br>";
-    }
-
-    // Ensure the upload directory exists
-    if ($uploadOk == 1) {
-        if (!is_dir($target_dir)) {
-            if (mkdir($target_dir, 0777, true)) {
-                echo "Uploads directory created.<br>";
-            } else {
-                echo "Error: Failed to create uploads directory.<br>";
-                $uploadOk = 0;
-            }
-        } else {
-            echo "Uploads directory already exists.<br>";
-        }
-
-        // Attempt to upload the file
-        if ($uploadOk == 1 && move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            echo "File uploaded successfully as " . htmlspecialchars($unique_name) . "<br>";
-            $image = $unique_name; // Save unique name for the database
-        } else {
-            echo "Error: Failed to upload file.<br>";
-            $image = ''; // Handle error
-        }
-    } else {
-        echo "Error: Image upload validation failed.<br>";
-    }
-} else {
-    $image = ''; // Handle no image case
-    echo "No file was uploaded or an error occurred. Error Code: " . $_FILES['image']['error'] . "<br>";
-}
-
+         // Attempt to upload the file
+         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+             $image = $unique_name; // Save unique name for the database
+         } else {
+             echo "Error: Failed to upload file.<br>";
+         }
+     } else {
+         echo "Error: Invalid file type or size.<br>";
+     }
+ } else {
+     echo "No file was uploaded or an error occurred. Error Code: " . $_FILES['image']['error'] . "<br>";
+ }
 
 
 
@@ -149,12 +111,16 @@ if ($conn->query($sql) === TRUE) {
     $_SESSION['username'] = $username;
     $_SESSION['password'] = $password;
         header("Location: registration_success.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
 
     $stmt->close();
+} else {
+    echo "Error preparing statement: " . $conn->error;
 }
 
 $conn->close();
+
 ?>
